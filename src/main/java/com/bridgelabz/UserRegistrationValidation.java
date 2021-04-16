@@ -21,13 +21,25 @@ public class UserRegistrationValidation {
         Matcher matcher = pattern.matcher(lname);
         return matcher.matches();
     }
+    //email Address Validation
+    public static boolean isvalidateEmailAddress(String email) {
+        //email validation
+        String Email_Address_Pattern = "^[0-9a-zA-Z]+([._+-][0-9a-zA-Z]+)*"+"@([0-9a-zA-Z][_]?)+[.][a-zA-Z]{2,4}([.][a-zA-Z]{2,4})?$";
+        Pattern pattern = Pattern.compile(Email_Address_Pattern);
+        Matcher matcher = pattern.matcher(email);
+        return matcher.matches();
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter First Name:");
         String firstname = sc.nextLine();
+        System.out.println(isValidFirstName(firstname));
         System.out.println("Enter Last Name:");
         String lastname = sc.nextLine();
-        System.out.println(isValidFirstName(firstname));
         System.out.println(isValidLastName(lastname));
+        System.out.println("Enter Email Address:");
+        String email = sc.nextLine();
+        System.out.println(isvalidateEmailAddress(email));
+
     }
 }
