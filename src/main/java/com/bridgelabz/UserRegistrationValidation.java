@@ -8,14 +8,14 @@ public class UserRegistrationValidation {
 
     //First name starts with Cap and has minimum 3 characters
     public static boolean isValidFirstName(String fname) {
-        // firstname pattern.
+        // firstname validation pattern.
         String FirstName_Pattern = "^[A-Z]{1}[a-z]{3,}[a-z]*$";
         Pattern pattern = Pattern.compile(FirstName_Pattern);
         Matcher matcher = pattern.matcher(fname);
         return matcher.matches();
     }
     public static boolean isValidLastName(String lname) {
-        // lastname pattern.
+        // lastname validation pattern.
         String LastName_Pattern = "^[A-Z]{1}[a-z]{3,}[a-z]*$";
         Pattern pattern = Pattern.compile(LastName_Pattern);
         Matcher matcher = pattern.matcher(lname);
@@ -36,9 +36,9 @@ public class UserRegistrationValidation {
         Matcher matcher = pattern.matcher(mobileNo);
         return matcher.matches();
     }
-    //Password Validation Rule_1 minimum charector should be 8.
-    public static boolean isValidatePasswordRule_1(String password) {
-        String Password = "^[a-zA-Z]{8,}";
+    //Password Validation Rule_2 shuold have atleast 1 Upperacse.
+    public static boolean isValidatePasswordRule_2(String password) {
+        String Password = "^([a-z]*(?=.*[A-Z]{1,})).{8,}$";
         Pattern pattern = Pattern.compile(Password);
         Matcher matcher = pattern.matcher(password);
         return matcher.matches();
@@ -64,6 +64,6 @@ public class UserRegistrationValidation {
 
         System.out.println("Enter Password:");
         String password = sc.nextLine();
-        System.out.println(isValidatePasswordRule_1(password));
+        System.out.println(isValidatePasswordRule_2(password));
     }
 }
