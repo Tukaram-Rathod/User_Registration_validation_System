@@ -36,6 +36,13 @@ public class UserRegistrationValidation {
         Matcher matcher = pattern.matcher(mobileNo);
         return matcher.matches();
     }
+    //Password Validation Rule_1 minimum charector should be 8.
+    public static boolean isValidatePasswordRule_1(String password) {
+        String Password = "^[a-zA-Z]{8,}";
+        Pattern pattern = Pattern.compile(Password);
+        Matcher matcher = pattern.matcher(password);
+        return matcher.matches();
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -55,5 +62,8 @@ public class UserRegistrationValidation {
         String mobileNo = sc.nextLine();
         System.out.println(isValidateMobileNumber(mobileNo));
 
+        System.out.println("Enter Password:");
+        String password = sc.nextLine();
+        System.out.println(isValidatePasswordRule_1(password));
     }
 }
