@@ -36,9 +36,9 @@ public class UserRegistrationValidation {
         Matcher matcher = pattern.matcher(mobileNo);
         return matcher.matches();
     }
-    //Password Validation Rule_2 shuold have atleast 1 Upperacse.
-    public static boolean isValidatePasswordRule_2(String password) {
-        String Password = "^([a-z]*(?=.*[A-Z]{1,})).{8,}$";
+    //Password Validation Rule_3 shuold have atleast 1 numeric number.
+    public static boolean isValidatePasswordRule_3(String password) {
+        String Password = "^([a-z]*(?=.*[a-zA-Z0-9]{1,})).{8,}$";
         Pattern pattern = Pattern.compile(Password);
         Matcher matcher = pattern.matcher(password);
         return matcher.matches();
@@ -64,6 +64,6 @@ public class UserRegistrationValidation {
 
         System.out.println("Enter Password:");
         String password = sc.nextLine();
-        System.out.println(isValidatePasswordRule_2(password));
+        System.out.println(isValidatePasswordRule_3(password));
     }
 }
