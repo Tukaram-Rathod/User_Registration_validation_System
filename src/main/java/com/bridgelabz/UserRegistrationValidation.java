@@ -3,7 +3,13 @@ package com.bridgelabz;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+interface IUserValidation{
+    boolean validateString(String userDetail,Pattern pattern);
+}
+
 public class UserRegistrationValidation {
+    static IUserValidation validateuser=(userDetail,pattern)->{return pattern.matcher(userDetail).matches();};
+
     public static Matcher matcher;
 
     private static final String Name_Pattern = "^[A-Z]{1}[a-z]{3,}$";
