@@ -3,7 +3,7 @@ package com.bridgelabz;
 
 import org.junit.Assert;
 import org.junit.Test;
-
+//user registration validation test class testing all method
 public class UserRegistrationValidationTest {
 
     @Test
@@ -33,7 +33,7 @@ public class UserRegistrationValidationTest {
     @Test
     public void givenemail_WhenProper_ShouldReturnTrue(){
         UserRegistrationValidation validator = new UserRegistrationValidation();
-        boolean result = validator.validateEmailAddress("abc@bridgelabz.com");
+        boolean result = validator.validateEmailAddress("abc@yahoo.com");
         Assert.assertTrue(result);
     }
     @Test
