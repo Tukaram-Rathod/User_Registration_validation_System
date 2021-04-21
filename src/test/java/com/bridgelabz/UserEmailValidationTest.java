@@ -10,8 +10,8 @@ import java.util.Collection;
 
 @RunWith(Parameterized.class)
 public class UserEmailValidationTest {
-    private String email;
-    private boolean Result;
+    private final String email;
+    private final boolean Result;
 
     public UserEmailValidationTest(String email, boolean Result) {
         this.email = email;
@@ -30,8 +30,12 @@ public class UserEmailValidationTest {
 
     @Test
     public void EmailValidationtest() {
-        System.out.println(email+" : "+Result);
-        boolean result=UserRegistrationValidation.validateEmailAddress(email);
-        Assert.assertEquals(Result, result);
+       try {
+           System.out.println(email+" : "+Result);
+           boolean result=UserRegistrationValidation.validateEmailAddress(email);
+           Assert.assertEquals(Result, result);
+       }catch (UserRegistrationValidationException e){
+           e.printStackTrace();
+       }
     }
 }
